@@ -1,7 +1,7 @@
 """
 RandomSPY
 Author: MrZoyo
-Date: 2024-03-26
+Date: 2024-05-16
 ----------------
 Champions Number: 167
 Latest released champion: Smolder
@@ -13,7 +13,7 @@ import io
 import os
 from PIL import Image
 
-version = 'v0.1.0'
+version = 'v0.1.1'
 required_folders = ['default', 'champions']
 champions_count = len(os.listdir('champions'))
 
@@ -21,7 +21,7 @@ champions_count = len(os.listdir('champions'))
 LANGUAGES = {
     "English": {
         "folder_error": "Folder {folder} does not exist or is empty, files missing.",
-        "random_button": "Random",
+        "random_button": "Random!",
         "double_mode": "Double Spy Mode",
         "discord_prompt": "Join BirdGaming Discord:",
         "discord_link": "https://discord.gg/birdgaming",
@@ -48,7 +48,7 @@ The regular players of the winning side and the spies of the losing side are the
     },
     "中文": {
         "folder_error": "文件夹 {folder} 不存在或为空，文件损坏。",
-        "random_button": "随机",
+        "random_button": "随机!",
         "double_mode": "双卧底模式",
         "discord_prompt": "游戏组队就来小鸟Discord:",
         "discord_link": "https://discord.gg/birdgaming",
@@ -75,7 +75,7 @@ The regular players of the winning side and the spies of the losing side are the
     },
     "Deutsch": {
         "folder_error": "Ordner {folder} existiert nicht oder ist leer, Dateien fehlen.",
-        "random_button": "Zufällig Generieren",
+        "random_button": "Zufällig Generieren!",
         "double_mode": "Doppel-Undercover-Mod",
         "discord_prompt": "Für Spielteams suchen: BirdGaming Discord:",
         "discord_link": "https://discord.gg/birdgaming",
@@ -139,7 +139,7 @@ def create_clash_window(selected_champions, language):
         row_names = [sg.Text(champ[1], size=(9, 1), font=("Helvetica", 14)) for champ in selected_champions[i:i + 5]]
         layout.append(row_images)
         layout.append(row_names)
-    layout.append([sg.Text('_' * 100)])  # Separator
+    layout.append([sg.HorizontalSeparator()])  # Separator
     layout.append([sg.Text(LANGUAGES[language]["red_side"], font=("SimHei", 20), text_color='red')])
     for i in range(15, 30, 5):  # Red side
         row_images = [sg.Image(data=champ[0], size=(100, 100)) for champ in selected_champions[i:i + 5]]
